@@ -8,7 +8,7 @@ public class Main {
         try (Scanner sc = new Scanner(System.in)) {
             pattern_index = sc.nextInt();
             size = sc.nextInt();
-            times = sc.nextInt();
+//            times = sc.nextInt();
         }
         switch (pattern_index) {
             case 1:
@@ -76,9 +76,6 @@ public class Main {
                 break;
             case 22:
                 pattern.p_22(size);
-                break;
-            case 23:
-                pattern.qwert(size,times);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + pattern_index);

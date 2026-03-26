@@ -302,14 +302,4 @@ public class Pattern {
             System.out.println();
         }
     }
-    public void qwert(int n, int j) {
-        int num;
-        for (int i = 0; i < j; i++) {
-            if (n%10!=0) {
-                n -=1;
-            }
-            else n/=10;
-        }
-        System.out.println(n);
-    }
 }
