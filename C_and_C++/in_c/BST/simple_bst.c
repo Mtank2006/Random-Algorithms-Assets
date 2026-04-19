@@ -77,6 +77,45 @@ void postOrder_simple_bst(simple_bst* root) {
     if (root == NULL)       return;
     postOrder_simple_bst(root->left);    postOrder_simple_bst(root->right);       printf("%d, ",root->data);
 }
+void print_minimum_maximum(simple_bst* root) {
+    if (root == NULL) {
+        printf("Tree is empty\n");
+        return;
+    }
+    simple_bst* temp_min = root;
+    simple_bst* temp_max = root;
+    while (temp_min->left != NULL)  temp_min = temp_min->left;
+    while (temp_max->right != NULL) temp_max = temp_max->right;
+    printf("Min - %d\n",temp_min->data);
+    printf("Max - %d\n",temp_max->data);
+}
+int get_floor(simple_bst* root, int value) {
+    if (root == NULL) return -1;
+
+    if (root->data == value) return root->data;
+    
+    if (root->data > value) return get_floor(root->left,value);
+
+    int floorValue = get_floor(root->right,value);
+
+    return(floorValue <= value && floorValue != -1) ? floorValue : root->data;
+}
+int get_ceil(simple_bst* root, int value) {
+    if (root == NULL) return -1;
+
+    if (root->data == value) return root->data;
+    
+    if (root->data < value) return get_ceil(root->right,value);
+
+    int ceilValue = get_ceil(root->left,value);
+
+    return(ceilValue >= value && ceilValue != -1) ? ceilValue : root->data;
+}
+void inOrder_Successor(simple_bst* root, int value) {
+    if (root == NULL)       return;
+
+    inOrder_simple_bst(root->left);      printf("%d, ",root->data);              inOrder_simple_bst(root->right);
+}
 int main() {
 
     //             50
@@ -111,4 +150,9 @@ int main() {
     printf("\n");
     postOrder_simple_bst(bst);
     printf("\n");
+    print_minimum_maximum(bst);
+    printf("\n");
+    printf("%d",get_floor(bst,53));
+    printf("\n");
+    printf("%d",get_ceil(bst,53));
 }
