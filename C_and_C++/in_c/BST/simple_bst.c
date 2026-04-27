@@ -40,9 +40,14 @@ simple_bst* getSuccessor(simple_bst* curr) {
 }
 simple_bst* delNode(simple_bst* root, int value) {
     if (root == NULL) return root;
-    if (root->data > value)         root->left = delNode(root->left, value);
-    else if (root->data < value)    root->right = delNode(root->right, value);
-    else {  // for value found 
+    if (root->data > value) {
+        root->left = delNode(root->left, value);
+    }
+    else if (root->data < value)
+    {
+        root->right = delNode(root->right, value);
+    }
+    else {
         if (root->left == NULL) {
             simple_bst* temp = root->right;
             free(root);
@@ -53,10 +58,11 @@ simple_bst* delNode(simple_bst* root, int value) {
             free(root);
             return temp;
         }
+
         simple_bst* succ = getSuccessor(root);
         root->data = succ->data;
         root->right = delNode(root->right, succ->data);
-        }
+    }
     return root;
 }
 void preOrder_simple_bst(simple_bst* root) {
@@ -105,11 +111,10 @@ int get_ceil(simple_bst* root, int value) {
 
     return(ceilValue >= value && ceilValue != -1) ? ceilValue : root->data;
 }
-void inOrder_Successor(simple_bst* root, int value) {
-    if (root == NULL)       return;
-
-    inOrder_simple_bst(root->left);      printf("%d, ",root->data);              inOrder_simple_bst(root->right);
-}
+// void inOrder_Successor(simple_bst* root, int value, int last) {
+//     if (root == NULL)       return;
+//     inOrder_simple_bst(root->left);      if ()             inOrder_simple_bst(root->right);
+// }
 int main() {
 
     //             50
@@ -117,8 +122,8 @@ int main() {
     //         30      70
     //        /  \    /  \
     //      20   40  60   80
-    //     /     /      \
-    //   10     35       65
+    //     /     /     \
+    //   10     35      65
     simple_bst* bst = NULL;
     bst = insert_simple_bst(bst, 50);
     bst = insert_simple_bst(bst, 30);

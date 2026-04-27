@@ -1,44 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 100
-int front = -1;
-int rear = -1;
-int Queue[MAX];
+typedef struct queue_linked_list
+{
+    int arr[MAX];
+    int front;
+    int rear;
+}qll;
+qll* create_queue() {
+    qll* queue = (qll*)malloc(sizeof(qll));
+    queue->front = 0;
+    queue->rear = 0;
+    return queue;
+}
+qll* queue; 
 void enqueue (int x) {
-    if (rear == MAX - 1) {
+    if (queue->rear ==  MAX - 1) {
         printf("Queue Overflow\n");
         return;
     }
-    if (front == -1) {
-        front = 0;
+    if (queue->front == -1) {
+        queue->front = 0;
     }
-    rear++;
-    Queue[rear] = x;
+    queue->rear++;
+    queue->arr[queue->rear] = x;
 }
 void dequeue () {
-    if (front==-1||front>rear) {
+    if (queue->front==-1||queue->front == queue->rear) {
         printf("Queue Underflow\n");
         return;
     }
-    front++;
+    queue->front++;
 
-    if (front > rear) {
-        front = rear = -1;
+    if (queue->front > queue->rear) {
+        queue->front = queue->rear = -1;
     }
 }
 void display (){
-    if (front == -1) {
+    if (queue->front == -1) {
         printf("Empty\n");
         return;
     }
     else {
-        for (int i = front; i <=rear; i++) {
-            printf("%d ",Queue[i]);
+        for (int i = queue->front; i <=queue->rear; i++) {
+            printf("%d ",queue->arr[i]);
         }
     }
     printf("\n");
 }
 int main (){
+    queue = create_queue();
     int option;
     while (1)
     {
