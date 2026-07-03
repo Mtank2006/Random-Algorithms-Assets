@@ -19,6 +19,8 @@
 !**/*.cpp
 !**/*.java
 !**/*.h
+!**/*.py
+!**/*.txt
 
 ################################
 # Allow git files
@@ -26,3 +28,8 @@
 !.gitignore
 !README.md
 
+################################
+# Ignore Sub - Git Files (if created by projects)
+################################
+**/*.gitignore
+**/*.README.md

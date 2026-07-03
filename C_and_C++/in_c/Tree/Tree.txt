@@ -1,0 +1,110 @@
+TREE DATA STRUCTURES – DEFINITIONS
+
+1. Basic Tree Concepts
+
+  - Tree: A hierarchical data structure consisting of nodes connected by edges with one root node.
+  - Root: The topmost node of a tree.
+  - Leaf: A node with no children.
+  - Height: Number of edges on the longest path from a node to a leaf.
+  - Depth: Number of edges from the root to a node.
+  - Subtree: A tree formed from a node and its descendants.
+
+2. Binary Trees (BT)
+
+  - Binary Tree: A tree where each node has at most two children (left and right).
+  - Full Binary Tree: Every node has either 0 or 2 children.
+  - Complete Binary Tree: All levels are filled except possibly the last, filled left to right.
+  - Perfect Binary Tree: All internal nodes have 2 children and all leaves are at the same level.
+  - Skewed Binary Tree: All nodes have only one child (like a linked list).
+  - Traversals:
+    - Inorder: Left → Root → Right
+    - Preorder: Root → Left → Right
+    - Postorder: Left → Right → Root
+    - Level Order: Level by level (BFS)
+
+3. Binary Search Tree (BST)
+
+  - BST: A binary tree where left subtree values < root < right subtree values.
+  - Insertion: Add a node while maintaining BST property.
+  - Deletion: Remove a node and restructure to preserve BST rules.
+  - Search: Find a node efficiently using ordering.
+  - LCA: Lowest node that is ancestor of two given nodes.
+
+4. Self-Balancing Trees
+
+  AVL Tree
+  - AVL Tree: A self-balancing BST where height difference between left and right subtrees is at most 1.
+  - Balance Factor: Height(left) - Height(right).
+  - Rotations: Operations to rebalance the tree after insertion/deletion.
+
+  Red-Black Tree
+  - Red-Black Tree: A self-balancing BST where each node is colored red or black.
+  - Properties:
+    - Root is black.
+    - No two red nodes adjacent.
+    - Every path has same number of black nodes.
+  - Ensures near-balanced height.
+
+5. Heaps
+
+  - Heap: A complete binary tree satisfying heap property.
+  - Min Heap: Parent ≤ children.
+  - Max Heap: Parent ≥ children.
+  - Heapify: Process of maintaining heap property.
+  - Priority Queue: Abstract structure using heaps.
+  - Heap Sort: Sorting using heap structure.
+
+6. Advanced Trees
+
+  B-Tree
+  - B-Tree: A self-balancing multi-way tree where nodes can have multiple children.
+  - Used in databases and file systems.
+
+  B+ Tree
+  - B+ Tree: A B-Tree variant where all data is stored in leaf nodes.
+  - Leaves are linked for efficient range queries.
+
+7. Trie (Prefix Tree)
+
+  - Trie: A tree for storing strings where each node represents a character.
+  - Efficient for prefix-based searching.
+
+8. Segment Tree
+
+  - Segment Tree: A tree used for range queries (sum, min, max) on arrays.
+  - Supports efficient updates and queries.
+
+9. Fenwick Tree (Binary Indexed Tree)
+
+  - Fenwick Tree: A compact structure for prefix sums and updates in logarithmic time.
+
+10. Suffix Tree
+
+  - Suffix Tree: A compressed trie containing all suffixes of a string.
+  - Used for fast substring operations.
+
+11. Expression Trees
+
+  - Expression Tree: A binary tree representing mathematical expressions.
+  - Leaves are operands, internal nodes are operators.
+
+12. Tree Algorithms
+
+  - DFS: Traverses depth-wise using recursion/stack.
+  - BFS: Traverses level-wise using queue.
+  - Diameter: Longest path between two nodes.
+  - Serialization: Convert tree to storable format.
+  - Deserialization: Reconstruct tree from stored data.
+
+13. Special Trees
+
+  - Threaded Binary Tree: Uses null pointers to store traversal info.
+  - Cartesian Tree: Heap-ordered tree built from a sequence.
+  - K-D Tree: Tree for multi-dimensional search.
+  - Interval Tree: Stores intervals for overlap queries.
+  - Order Statistic Tree: BST supporting rank/select operations.
+
+14. Graph Relation
+
+  - Spanning Tree: A tree connecting all nodes of a graph with no cycles.
+  - Minimum Spanning Tree (MST): Spanning tree with minimum total edge weight.
